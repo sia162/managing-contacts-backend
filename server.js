@@ -1,14 +1,16 @@
 const express = require("express");
+const errorHandler = require("./middleware/errorHandler");
 const dotenv = require("dotenv").config()
 
 const app = express();
 
 const port = process.env.PORT || 5000;
 
-//routes middleware
-app.use('/api/contacts',require("./routes/contactRoutes"))
+app.use(express.json()) //bodyparser middleware
+app.use('/api/contacts',require("./routes/contactRoutes")) //routes middleware
+app.use(errorHandler) //error handling middleware
 
-//server listening
+//server listenings
 app.listen(port, ()=>{
     console.log(`server running on port ${port}`);
-}) 
+})  
