@@ -9,6 +9,7 @@ const port = process.env.PORT || 5000;
 
 app.use(express.json()) //bodyparser middleware
 app.use('/api/contacts',require("./routes/contactRoutes")) //routes middleware
+app.use('/api/users',require("./routes/userRoutes")) //routes middleware
 app.use(errorHandler) //error handling middleware
 
 //server listenings
